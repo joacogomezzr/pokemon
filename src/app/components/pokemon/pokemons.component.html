@@ -1,0 +1,25 @@
+<div class="flex flex-wrap justify-center gap-8 p-8 bg-gradient-to-r from-orange-100 via-orange-300 to-orange-500">
+  <div *ngFor="let pokemon of pokemons" 
+       class="relative bg-white rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl w-72">
+    <!-- Imagen del Pokémon -->
+    <div class="relative overflow-hidden rounded-t-2xl bg-gradient-to-b from-orange-500 to-orange-700">
+      <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" 
+           class="mx-auto w-40 h-40 transform transition-transform duration-500 hover:scale-110">
+      <div class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-30 backdrop-blur-md py-2">
+        <h3 class="text-center text-lg font-extrabold text-white">{{ pokemon.name | uppercase }}</h3>
+      </div>
+    </div>
+    <!-- Contenido de la tarjeta -->
+    <div class="p-6">
+      <div class="text-center mt-3 flex flex-wrap justify-center gap-2">
+        <span *ngFor="let type of pokemon.types" 
+              class="bg-orange-200 text-orange-800 text-xs font-semibold rounded-full px-4 py-1 shadow-sm">
+          {{ type.type.name | uppercase }}
+        </span>
+      </div>
+      <p class="mt-4 text-center text-gray-600 text-sm leading-relaxed">{{ pokemon.description }}</p>
+    </div>
+
+    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-4 w-20 h-2 bg-orange-400 rounded-full"></div>
+  </div>
+</div>
